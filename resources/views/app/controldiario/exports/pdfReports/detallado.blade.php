@@ -244,7 +244,7 @@
                                         @if ( $col == $free_value )
                                             <td style="{{ $color }}<?=($c<3)?'width:250px !important;':''?>"></td>
                                         @elseif ( isset($col['value']) )
-                                            <?  if($col['value']=="HORAS TRABAJADAS"){
+                                            <?php  if($col['value']=="HORAS TRABAJADAS"){
                                                     $color = "color:blue;background:#c1e2fc;";
                                                 }elseif($col['value']=="HORAS MANTENIMIENTO"){
                                                     $color = "color:red;background:#fda099;";

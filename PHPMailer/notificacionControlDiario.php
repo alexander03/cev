@@ -1,7 +1,9 @@
 <?php
-require_once('class.phpmailer.php');
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as phpmailerException;
 include_once("cado.php");
-//include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
 
 $conexion = new clsAccesoDatos();
 $mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
@@ -27,7 +29,7 @@ try {
   
       $listaCorreo = explode(";",$correos);//$k.
       //$listaCorreo = explode(";","alex_3849@hotmail.com;javiergonzales@h2cto.com");
-      $mail = new phpmailer();
+      $mail = new PHPMailer();
       //$mail->SMTPDebug = 2;
       $mail->IsSMTP();
       $mail->SMTPAuth = true;
@@ -137,7 +139,7 @@ try {
   
       $listaCorreo = explode(";",$correos);//$k.
       //$listaCorreo = explode(";","alex_3849@hotmail.com;javiergonzales@h2cto.com");
-      $mail = new phpmailer();
+      $mail = new PHPMailer();
       //$mail->SMTPDebug = 2;
       $mail->IsSMTP();
       $mail->SMTPAuth = true;

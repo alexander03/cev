@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Empresa extends Model
 {
+    use LegacyDateSerialization;
 	protected $table = 'empresa';
     //use SoftDeletes;
     

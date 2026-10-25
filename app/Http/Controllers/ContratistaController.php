@@ -104,7 +104,7 @@ class ContratistaController extends Controller
         $listar     = Libreria::getParam($request->input('listar'), 'NO');
         $reglas     = array('razonsocial' => 'required|max:100',
                     'ruc' => 'required|max:11|min:11|unique:contratista,ruc,NULL,id,deleted_at,NULL',
-                    'email' => 'email');
+                    'email' => 'email:rfc|not_regex:/[\r\n]/');
         $mensajes = array(
             'razonsocial.required' => 'Debe ingresar una razonsocial',
             'razonsocial.max' => 'La razonsocial debe tener max. 100 caracteres',
@@ -112,7 +112,8 @@ class ContratistaController extends Controller
             'ruc.unique' => 'RUC ya existe, especifique otro',
             'ruc.max' => 'El RUC debe tener 11 dígitos',
             'ruc.min' => 'El RUC debe tener 11 dígitos',
-            'email.email' => 'Debe registrar un correo valido'
+            'email.email' => 'Debe registrar un correo valido',
+            'email.not_regex' => 'Debe registrar un correo valido'
         );
         $validacion = Validator::make($request->all(), $reglas, $mensajes);
         if ($validacion->fails()) {
@@ -159,11 +160,12 @@ class ContratistaController extends Controller
             return $existe;
         }
         $reglas     = array('razonsocial' => 'required|max:100',
-                        'email' => 'email');
+                        'email' => 'email:rfc|not_regex:/[\r\n]/');
         $mensajes = array(
             'razonsocial.required'         => 'Debe ingresar una descripción',
             'razonsocial.max' => 'La razonsocial debe tener max. 100 caracteres',
-            'email.email' => 'Debe registrar un email1 valido'
+            'email.email' => 'Debe registrar un email1 valido',
+            'email.not_regex' => 'Debe registrar un email1 valido'
         );
         $validacion = Validator::make($request->all(), $reglas, $mensajes);
         if ($validacion->fails()) {

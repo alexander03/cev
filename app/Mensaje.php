@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Mensaje extends Model
 {	
+    use LegacyDateSerialization;
 	use SoftDeletes;
     protected $table = 'mensaje';
-    protected $dates = ['deleted_at'];
 
     protected $fillable = ['descripcion','fechainicio','fechafin','tipuser_id'];
 

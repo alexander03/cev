@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tipouser extends Model
 {
+    use LegacyDateSerialization;
 	use SoftDeletes;
     protected $table = 'tipouser';
-    protected $dates = ['deleted_at'];
 
     public function accesos(){
     	return $this->hasMany('App\Acceso');

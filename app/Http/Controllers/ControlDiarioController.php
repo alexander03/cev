@@ -829,7 +829,7 @@ class ControlDiarioController extends Controller
         }
     }
     
-    public function exportPdfReport(string $reporte, DateTime $start_date, DateTime $end_date, array $equipo_ids = [],string $periodo, array $fechas)
+    public function exportPdfReport(string $reporte, DateTime $start_date, DateTime $end_date, array $equipo_ids, string $periodo, array $fechas)
     {
         if ( $reporte === 'detallado' ) {
             $this->exportPdfReport_ByA($start_date, $end_date, $equipo_ids, $periodo, $fechas);
@@ -840,7 +840,7 @@ class ControlDiarioController extends Controller
         }
     }
 
-    public function exportPdfReport_ByA(DateTime $start_date, DateTime $end_date, array $equipo_ids = [], string $periodo, array $fechas) 
+    public function exportPdfReport_ByA(DateTime $start_date, DateTime $end_date, array $equipo_ids, string $periodo, array $fechas) 
     {
         $data = (new PdfReport_ByA($start_date, $end_date, $equipo_ids, $periodo, $fechas))->getData();
 
@@ -862,7 +862,7 @@ class ControlDiarioController extends Controller
         $mpdf->Output($data['namefile'], "I");
     }
 
-    public function exportPdfReport_JyMP(DateTime $start_date, DateTime $end_date, array $equipo_ids = [], string $periodo, array $fechas) 
+    public function exportPdfReport_JyMP(DateTime $start_date, DateTime $end_date, array $equipo_ids, string $periodo, array $fechas) 
     {
         $data = (new PdfReport_JyMP($start_date, $end_date, $equipo_ids, $periodo, $fechas))->getData();
 

@@ -658,7 +658,7 @@ class ControlDiarioVehiculoController extends Controller
         }
     }
     
-    public function exportPdfReport(string $reporte, DateTime $start_date, DateTime $end_date, array $equipo_ids = [], string $periodo)
+    public function exportPdfReport(string $reporte, DateTime $start_date, DateTime $end_date, array $equipo_ids, string $periodo)
     {
         if ( $reporte === 'detallado' ) {
             $this->exportPdfReportDetallado($start_date, $end_date, $equipo_ids, $periodo);
@@ -671,7 +671,7 @@ class ControlDiarioVehiculoController extends Controller
         } 
     }
 
-    public function exportPdfReportDetallado(DateTime $start_date, DateTime $end_date, array $equipo_ids = [], string $periodo) 
+    public function exportPdfReportDetallado(DateTime $start_date, DateTime $end_date, array $equipo_ids, string $periodo) 
     {
         $data = (new PdfReportDetalladoVehiculo($start_date, $end_date, $equipo_ids, $periodo))->getData();
 
@@ -693,7 +693,7 @@ class ControlDiarioVehiculoController extends Controller
         $mpdf->Output($data['namefile'], "I");
     }
 
-    public function exportPdfReportConsolidado(DateTime $start_date, DateTime $end_date, array $equipo_ids = [], $periodo) 
+    public function exportPdfReportConsolidado(DateTime $start_date, DateTime $end_date, array $equipo_ids, $periodo) 
     {
         $data = (new PdfReportConsolidadoVehiculo($start_date, $end_date, $equipo_ids, $periodo))->getData();
 
@@ -715,7 +715,7 @@ class ControlDiarioVehiculoController extends Controller
         $mpdf->Output($data["namefile"], "I");
     }
     
-    public function exportPdfReportTodos(DateTime $start_date, DateTime $end_date, array $equipo_ids = [], string $periodo) 
+    public function exportPdfReportTodos(DateTime $start_date, DateTime $end_date, array $equipo_ids, string $periodo) 
     {
         $data = (new PdfReportConsolidadoVehiculo($start_date, $end_date, $equipo_ids, $periodo))->getData();
 

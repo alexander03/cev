@@ -2,13 +2,15 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pasaje extends Model
 {
+    use LegacyDateSerialization;
     protected $table = 'pasaje';
-    protected $dates = ['deleted_at'];
     use SoftDeletes;
 
     public function origen()

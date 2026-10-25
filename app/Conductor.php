@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
@@ -9,6 +11,7 @@ use App\Concesionaria;
 
 class Conductor extends Model
 {
+    use LegacyDateSerialization;
     protected $table = 'conductor';
     use SoftDeletes;
     protected $fillable = ['nombres', 'apellidos', 'dni', 'categoria', 'licencia', 'fechavencimiento', 'contratista_id','tipo','lider_id'];

@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +12,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
+    use LegacyDateSerialization;
+    use HasFactory;
     use Notifiable;
     use SoftDeletes;
     /**

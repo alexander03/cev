@@ -2,11 +2,14 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Repuesto extends Model
 {
+    use LegacyDateSerialization;
     protected $table = 'repuesto';
     use SoftDeletes;
     protected $fillable = ['codigo', 'descripcion', 'unidad_id', 'categoriarepuesto_id'];

@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class VelocidadVehiculo extends Model{
+    use LegacyDateSerialization;
     use SoftDeletes;
     protected $table = 'velocidadvehiculo';
-    protected $dates = ['deleted_at'];
     protected $fillable = ['vehiculo_id','concesionaria_id','fecha','zona_id','mapa','velocidad','localizacion','rumbo','latitud','longitud','calle'];
             
     public function vehiculo(){
