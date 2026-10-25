@@ -2,11 +2,14 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contratista extends Model
 {
+    use LegacyDateSerialization;
     protected $table = 'contratista';
     use SoftDeletes;
     protected $fillable = ['ruc', 'razonsocial','propietario','email','telefono'];

@@ -2,15 +2,17 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Diagnostico extends Model
 {
+    use LegacyDateSerialization;
     use SoftDeletes;
     protected $table = 'diagnostico';
-    protected $dates = ['deleted_at'];
 
     public function vehiculo()
     {

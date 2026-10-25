@@ -19,7 +19,7 @@
 		{
 			return $this->info;
 		}
-		function cURL($cookies=TRUE,$referer='http://www.google.com',$cookie='cookies.txt',$compression='gzip,deflate',$proxy='')
+		function __construct($cookies=TRUE,$referer='http://www.google.com',$cookie='cookies.txt',$compression='gzip,deflate',$proxy='')
 		{
 			$this->headers[0] = "Accept-Encoding: gzip, deflate, sdch";
 			$this->headers[] = "Accept-Language: es-419,es;q=0.8";

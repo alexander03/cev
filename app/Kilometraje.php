@@ -2,11 +2,14 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Kilometraje extends Model
 {
+    use LegacyDateSerialization;
     use SoftDeletes;
     protected $table = 'kilometraje';
     protected $fillable = ['descripcion', 'limite_inf', 'limite_sup'];

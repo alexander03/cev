@@ -2,15 +2,17 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RegManVeh extends Model
 {
+    use LegacyDateSerialization;
     use SoftDeletes;
     protected $table = 'regmanveh';
     protected $fillable = ['id','concesionaria_id','ordencompra', 'cliente','estado','ua_id','kmman','kminicial','kmfinal','fechaentrada','fechasalida','tipomantenimiento','telefono','equipo_id','checklistvehicular_id','fecharegistro','fechamantenimiento','taller_id','diagnostico_id','numero','user_id'];
-    protected $dates = ['deleted_at'];
 
     public function vehiculo()
     {

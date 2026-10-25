@@ -2,13 +2,15 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Docmat extends Model
 {
+    use LegacyDateSerialization;
     protected $table = 'docmat';
-    protected $dates = ['deleted_at'];
     use SoftDeletes;
 
     public function vehiculo()

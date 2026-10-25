@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Tipocambio extends Model
 {
+    use LegacyDateSerialization;
 	
 
 	protected $table = 'tipocambio';

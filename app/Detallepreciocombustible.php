@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Detallepreciocombustible extends Model
 {
+    use LegacyDateSerialization;
     use SoftDeletes;
     protected $table = 'detallepreciocombustible';
-    protected $dates = ['deleted_at'];
 
     public function preciocombustible()
     {

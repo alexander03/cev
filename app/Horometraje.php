@@ -2,11 +2,14 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Horometraje extends Model
 {
+    use LegacyDateSerialization;
     use SoftDeletes;
     protected $table = 'horometraje';
     protected $fillable = ['descripcion', 'limite_inf', 'limite_sup'];

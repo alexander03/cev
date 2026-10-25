@@ -1,6 +1,8 @@
 <?php
-require_once('class.phpmailer.php');
-//include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as phpmailerException;
 
 $mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
@@ -9,7 +11,7 @@ $mail->IsSMTP(); // telling the class to use SMTP
 try {
   $listaCorreo = explode("|",$_GET["correo"]);
   //$listaImagen = explode("|",$_GET["imagenes"]);
-  $mail = new phpmailer();
+  $mail = new PHPMailer();
   //$mail->SMTPDebug = 2;
   $mail->IsSMTP();
   $mail->SMTPAuth = true;

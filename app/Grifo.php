@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Grifo extends Model
 {	
+    use LegacyDateSerialization;
 	use SoftDeletes;
     protected $table = 'grifo';
-    protected $dates = ['deleted_at'];
 
     protected $fillable = ['descripcion'];
 

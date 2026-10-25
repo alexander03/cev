@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Controldiario extends Model
 {
+    use LegacyDateSerialization;
     use SoftDeletes;
     protected $table = 'controldiario';
-    protected $dates = ['deleted_at'];
 
     public function tipohora()
     {

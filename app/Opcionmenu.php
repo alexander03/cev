@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Opcionmenu extends Model
 {
+    use LegacyDateSerialization;
 	use SoftDeletes;
     protected $table = 'opcionmenu';
-    protected $dates = ['deleted_at'];
     
     public function grupomenu()
     {

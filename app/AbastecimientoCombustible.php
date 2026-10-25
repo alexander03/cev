@@ -2,14 +2,16 @@
 
 namespace App;
 
+use App\Traits\LegacyDateSerialization;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AbastecimientoCombustible extends Model{
+    use LegacyDateSerialization;
 
     use SoftDeletes;
     protected $table = 'abastecimiento_combustible';
-    protected $dates = [ 'deleted_at' ];
   
     protected $fillable = [ 'fecha_abastecimiento', 'grifo_id', 'tipo_combustible', 
                             'conductor_id', 'conductor_fake', 'ua_id', 'equipo_id', 'qtdgl', 'qtdl',

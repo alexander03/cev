@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+
+use App\Traits\LegacyDateSerialization;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
@@ -8,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Checklistvehicular extends Model
 {
+    use LegacyDateSerialization;
     protected $table = 'checklistvehicular';
     use SoftDeletes;
     protected $fillable = [
