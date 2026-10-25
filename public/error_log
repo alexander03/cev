@@ -1,0 +1,58 @@
+[09-Sep-2020 15:00:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 98570240 bytes) in /home/h2olmos/public_html/h2soft/app/Http/Controllers/UaController.php on line 287
+[09-Sep-2020 15:12:42 UTC] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 20480 bytes) in /home/h2olmos/public_html/h2soft/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Calculation.php on line 215
+[06-Oct-2020 16:24:22 UTC] PHP Fatal error:  Cannot use App\Kilometraje as Kilometraje because the name is already in use in /home/h2olmos/public_html/h2soft/app/Http/Controllers/VehiculoController.php on line 14
+[06-Oct-2020 16:24:25 UTC] PHP Fatal error:  Cannot use App\Kilometraje as Kilometraje because the name is already in use in /home/h2olmos/public_html/h2soft/app/Http/Controllers/VehiculoController.php on line 14
+[11-Oct-2020 00:53:31 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 134217736 bytes) in /home/h2olmos/public_html/h2soft/app/Exports/ReportHrsEquiposUas.php on line 42
+[30-Oct-2020 04:25:05 UTC] PHP Fatal error:  Interface 'App\Exports\WithEvents' not found in /home/h2olmos/public_html/h2soft/app/Exports/UaExport2.php on line 11
+[10-Nov-2020 01:27:01 UTC] PHP Fatal error:  Interface 'App\Exports\WithEvents' not found in /home/h2olmos/public_html/h2soft/app/Exports/ContratistaExport.php on line 10
+[10-Nov-2020 17:29:36 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 117444608 bytes) in /home/h2olmos/public_html/h2soft/app/Http/Controllers/RegRepVehController.php on line 599
+[10-Nov-2020 17:36:39 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 117444608 bytes) in /home/h2olmos/public_html/h2soft/app/Http/Controllers/RegRepVehController.php on line 599
+[10-Nov-2020 17:37:26 UTC] PHP Fatal error:  Cannot use $this as lexical variable in /home/h2olmos/public_html/h2soft/app/Exports/RegRepVehExportExcel.php on line 44
+[11-Nov-2020 18:59:47 UTC] PHP Fatal error:  Interface 'Maatwebsite\Excel\Concerns\headingRow' not found in /home/h2olmos/public_html/h2soft/app/Exports/TransporteExport.php on line 17
+[11-Nov-2020 19:08:20 UTC] PHP Fatal error:  Class App\Exports\TransporteExport contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Maatwebsite\Excel\Concerns\WithCustomStartCell::startCell) in /home/h2olmos/public_html/h2soft/app/Exports/TransporteExport.php on line 17
+[12-Nov-2020 23:20:28 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/h2olmos/public_html/h2soft/app/Exports/RecorridoVehiculoExport.php on line 47
+[30-Mar-2021 02:52:21 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in /home/h2o5lmos9/public_html/h2soft/app/Exports/ReportHrsEquiposUas.php on line 260
+[30-Mar-2021 02:52:50 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in /home/h2o5lmos9/public_html/h2soft/app/Exports/ReportHrsEquiposUas.php on line 260
+[30-Mar-2021 02:52:58 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in /home/h2o5lmos9/public_html/h2soft/app/Exports/ReportHrsEquiposUas.php on line 260
+[31-Aug-2021 19:56:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/h2o5lmos9/public_html/h2soft/vendor/mpdf/mpdf/src/Mpdf.php on line 19318
+[31-Aug-2021 19:57:46 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/h2o5lmos9/public_html/h2soft/vendor/mpdf/mpdf/src/Mpdf.php on line 19317
+[03-Jan-2022 14:29:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in /home/h2o5lmos9/public_html/h2soft/vendor/mpdf/mpdf/src/Mpdf.php on line 15816
+[29-Apr-2022 15:17:22 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 400560128 bytes) in /home/h2o5lmos9/public_html/h2soft/app/Http/Controllers/ReportKilometrajeController.php on line 57
+[10-Jun-2022 02:46:07 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:46:14 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:46:22 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:46:32 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:47:03 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:47:25 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:47:44 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:48:07 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:48:28 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:49:40 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:49:44 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:49:48 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:49:48 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:49:54 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:49:55 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:49:58 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:06 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:08 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:15 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:24 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:26 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:33 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:37 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:38 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:40 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:44 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:45 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:51 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:50:52 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:51:02 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:51:03 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:51:23 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:51:30 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:51:52 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:52:46 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:53:46 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:58:40 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
+[10-Jun-2022 02:58:52 UTC] PHP Parse error:  syntax error, unexpected ':', expecting '{' in /home/h2o5lmos9/public_html/h2soft/vendor/symfony/polyfill-php80/bootstrap.php on line 23
