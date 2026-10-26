@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/config.php';
 $ggTipoBD=2;
 $ggTipoCon=1;
 function umill($valor){
@@ -70,9 +71,9 @@ class clsAccesoDatos{
 	private $gNumReg = 20;  
 
 	//Servidor de Base de Datos
-	private $gServidor = "localhost";
+	private $gServidor;
 	//Nombre de Base de Datos
-	private $gBaseDatos = "h2soft2021";
+	private $gBaseDatos;
 	//Nombre de Usuario
 	//Tipo de Base Datos
 	private $gTipoBD = 2; //1=SQLSERVER, 2=MYSQL, 3=POSTGRESQL
@@ -85,19 +86,11 @@ class clsAccesoDatos{
 	function __construct(){
 		global $ggTipoBD;
 		$this->gTipoBD=$ggTipoBD;
-		if($this->gTipoBD==1){
-			$this->gServidor = "localhost";
-		}
-		if($this->gTipoBD==2){
-			$this->gServidor = "localhost";
-			$user='root';
-			$pass='H2OLMOS*2024-OLMOS';
-		}
-		if($this->gTipoBD==3){
-			$this->gServidor = "localhost";
-			$user='postgres';//sica
-			$pass='root';//root sicaweb2013
-		}
+		// Credenciales leidas del .env del proyecto (ver PHPMailer/config.php).
+		$this->gServidor = env('DB_HOST');
+		$this->gBaseDatos = env('DB_DATABASE');
+		$user = env('DB_USERNAME');
+		$pass = env('DB_PASSWORD');
 		// Crea una Conexion SQLSERVER 2000
 		//echo "Antes de COncetar";
 		try {
@@ -109,7 +102,7 @@ class clsAccesoDatos{
     				$this->gCnx = new PDO("mssql:host=".$this->gServidor.";dbname=".$this->gBaseDatos,$user,$pass);
     			}
     			if($this->gTipoBD==2){
-    				$this->gCnx = new PDO("mysql:host=".$this->gServidor.";port=3306;dbname=".$this->gBaseDatos,$user,$pass);
+    				$this->gCnx = new PDO("mysql:host=".$this->gServidor.";port=".env('DB_PORT', '3306').";dbname=".$this->gBaseDatos,$user,$pass);
     			}
     			if($this->gTipoBD==3){
     				if($this->gTipoConex==1){

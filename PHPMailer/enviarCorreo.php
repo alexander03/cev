@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/config.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as phpmailerException;
@@ -15,12 +15,12 @@ try {
   //$mail->SMTPDebug = 2;
   $mail->IsSMTP();
   $mail->SMTPAuth = true;
-  $mail->SMTPSecure = 'tls';
-  $mail->Host = 'smtp-mail.outlook.com';
-  $mail->Port = 587; 
-  $mail->Username = 'notih2cto@outlook.com';
-  $mail->Password = 'H2cto2023###';
-  $mail->SetFrom('notih2cto@outlook.com', 'SGISOFT - Notificaciones');
+  $mail->SMTPSecure = env('OUTLOOK_MAIL_ENCRYPTION');
+  $mail->Host = env('OUTLOOK_MAIL_HOST');
+  $mail->Port = (int) env('OUTLOOK_MAIL_PORT');
+  $mail->Username = env('OUTLOOK_MAIL_USERNAME');
+  $mail->Password = env('OUTLOOK_MAIL_PASSWORD');
+  $mail->SetFrom(env('OUTLOOK_MAIL_FROM_ADDRESS'), 'SGISOFT - Notificaciones');
   
   for ($i=0; $i < count($listaCorreo) ; $i++) { 
     $mail->AddAddress($listaCorreo[$i]);
@@ -36,7 +36,6 @@ try {
   if(!$mail->Send()) {
     echo "Error while sending Email.";
     echo $mail->ErrorInfo;
-    print_r($mail);
   } else {
     echo "Email sent successfully;<script>window.close();</script>";
   }
