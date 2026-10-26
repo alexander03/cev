@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/config.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as phpmailerException;
@@ -50,12 +50,12 @@ try {
       //$mail->SMTPDebug = 2;
       $mail->IsSMTP();
       $mail->SMTPAuth = true;
-      $mail->SMTPSecure = 'ssl';
-      $mail->Host = 'smtp.gmail.com';
-      $mail->Port = 465; 
-      $mail->Username = 'noticevh2cto@gmail.com';
-      $mail->Password = 'ftlomfkmxcbqjoiy'; 
-      $mail->SetFrom('noticevh2cto', 'CEV - Notificaciones');
+      $mail->SMTPSecure = env('NOTIF_MAIL_ENCRYPTION');
+      $mail->Host = env('NOTIF_MAIL_HOST');
+      $mail->Port = (int) env('NOTIF_MAIL_PORT');
+      $mail->Username = env('NOTIF_MAIL_USERNAME');
+      $mail->Password = env('NOTIF_MAIL_PASSWORD');
+      $mail->SetFrom(env('NOTIF_FROM_ADDRESS_ALT'), 'CEV - Notificaciones');
       
       for ($i=0; $i < count($listaCorreo) ; $i++) { 
         $mail->AddAddress($listaCorreo[$i]);
@@ -99,7 +99,6 @@ try {
       if(!$mail->Send()) {
         echo "Error while sending Email.";
         echo $mail->ErrorInfo;
-        print_r($mail);
       } else {
         echo "Email sent successfully;<script>window.close();</script>";
       }
@@ -169,12 +168,12 @@ try {
       //$mail->SMTPDebug = 2;
       $mail->IsSMTP();
       $mail->SMTPAuth = true;
-      $mail->SMTPSecure = 'ssl';
-      $mail->Host = 'smtp.gmail.com';
-      $mail->Port = 465; 
-      $mail->Username = 'noticevh2cto@gmail.com';
-      $mail->Password = 'ftlomfkmxcbqjoiy'; 
-      $mail->SetFrom('noticevh2cto', 'CEV - Notificaciones');
+      $mail->SMTPSecure = env('NOTIF_MAIL_ENCRYPTION');
+      $mail->Host = env('NOTIF_MAIL_HOST');
+      $mail->Port = (int) env('NOTIF_MAIL_PORT');
+      $mail->Username = env('NOTIF_MAIL_USERNAME');
+      $mail->Password = env('NOTIF_MAIL_PASSWORD');
+      $mail->SetFrom(env('NOTIF_FROM_ADDRESS_ALT'), 'CEV - Notificaciones');
       
       for ($i=0; $i < count($listaCorreo) ; $i++) { 
         $mail->AddAddress($listaCorreo[$i]);
@@ -216,7 +215,6 @@ try {
       if(!$mail->Send()) {
         echo "Error while sending Email.";
         echo $mail->ErrorInfo;
-        print_r($mail);
       } else {
         echo "Email sent successfully;<script>window.close();</script>";
       }
