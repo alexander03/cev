@@ -570,8 +570,8 @@ class MantCorrPrev extends Controller
         }
         $listar   = Libreria::getParam($request->input('listar'), 'NO');
         $checklistvehicular = Checklistvehicular::find($id);
-        if (!Checklistvehicular::conductorPuedeEditar(auth()->user(), optional($checklistvehicular->conductor)->user_id, $checklistvehicular->fecha_registro)) {
-            $cadena = '<blockquote><p class="text-danger">No puede modificar un checklist de otro conductor, salvo los registrados con fecha de hoy.</p></blockquote>';
+        if (!Checklistvehicular::conductorPuedeEditar(auth()->user(), optional($checklistvehicular->conductor)->user_id, $checklistvehicular->fecha_registro, $checklistvehicular->id)) {
+            $cadena = '<blockquote><p class="text-danger">Solo puede modificar su ultimo checklist o los de otros conductores registrados con fecha de hoy.</p></blockquote>';
             $cadena .= '<button class="btn btn-warning btn-sm" id="btnCerrarexiste"><i class="fa fa-times fa-lg"></i> Cerrar</button>';
             $cadena .= "<script type=\"text/javascript\">
                             $(document).ready(function() {
@@ -624,8 +624,8 @@ class MantCorrPrev extends Controller
             return $existe;
         }
         $checklistvehicular = Checklistvehicular::find($id);
-        if (!Checklistvehicular::conductorPuedeEditar(auth()->user(), optional($checklistvehicular->conductor)->user_id, $checklistvehicular->fecha_registro)) {
-            return json_encode(array("permiso" => ["No puede modificar un checklist de otro conductor, salvo los registrados con fecha de hoy."]));
+        if (!Checklistvehicular::conductorPuedeEditar(auth()->user(), optional($checklistvehicular->conductor)->user_id, $checklistvehicular->fecha_registro, $checklistvehicular->id)) {
+            return json_encode(array("permiso" => ["Solo puede modificar su ultimo checklist o los de otros conductores registrados con fecha de hoy."]));
         }
 
         $today = \Carbon\Carbon::now('America/Lima')->toDateString();
