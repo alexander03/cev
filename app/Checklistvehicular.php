@@ -89,17 +89,14 @@ class Checklistvehicular extends Model
 
     /**
      * Un usuario conductor (tipouser 7) solo puede editar el ultimo de sus propios
-     * checklists (conductor.user_id = su usuario) y los de otros solo si la F. Registro es hoy.
+     * checklists (conductor.user_id = su usuario); nunca los de otros.
      */
-    public static function conductorPuedeEditar($user, $conductorUserId, $fechaRegistro, $checklistId)
+    public static function conductorPuedeEditar($user, $conductorUserId, $checklistId)
     {
         if ($user->tipouser_id != 7) {
             return true;
         }
-        if ($conductorUserId == $user->id) {
-            return $checklistId == self::ultimoIdDelConductor($user->id);
-        }
-        return date('Y-m-d', strtotime($fechaRegistro)) == date('Y-m-d');
+        return $conductorUserId == $user->id && $checklistId == self::ultimoIdDelConductor($user->id);
     }
 
     /**

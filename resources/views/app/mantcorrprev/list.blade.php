@@ -26,7 +26,7 @@
 		<tr style="<?php echo $color; ?>">
 			<td>{{ $contador }}</td>
 			@if($user->tipouser_id!=10)
-				@if(App\Checklistvehicular::conductorPuedeEditar($user, $value->conductor_user_id, $value->fecha_registro, $value->id))
+				@if(App\Checklistvehicular::conductorPuedeEditar($user, $value->conductor_user_id, $value->id))
 				<td>{!! Form::button('<i class="material-icons">edit</i>', array('onclick' => 'modal (\''.URL::route($ruta["edit"], array($value->id, 'listar'=>'SI')).'\', \''.$titulo_modificar.'\', this);', 'class' => 'btn btn-primary btn-link btn-sm','rel'=>'tooltip','title'=>'Ver')) !!}</td>
 				@else
 				<td></td>
