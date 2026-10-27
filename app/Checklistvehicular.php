@@ -88,18 +88,33 @@ class Checklistvehicular extends Model
     }
 
     /**
-     * Un usuario conductor (tipouser 7) puede editar sus propios checklists
-     * (conductor.user_id = su usuario) y los de otros solo si la F. Registro es hoy.
+     * Un usuario conductor (tipouser 7) solo puede editar el ultimo de sus propios
+     * checklists (conductor.user_id = su usuario); nunca los de otros.
      */
-    public static function conductorPuedeEditar($user, $conductorUserId, $fechaRegistro)
+    public static function conductorPuedeEditar($user, $conductorUserId, $checklistId)
     {
         if ($user->tipouser_id != 7) {
             return true;
         }
-        if ($conductorUserId == $user->id) {
-            return true;
+        return $conductorUserId == $user->id && $checklistId == self::ultimoIdDelConductor($user->id);
+    }
+
+    /**
+     * Id del checklist mas reciente (F. Registro + Hora Fin) de los conductores
+     * vinculados al usuario. Se calcula una sola vez por peticion.
+     */
+    public static function ultimoIdDelConductor($userId)
+    {
+        static $cache = [];
+        if (!array_key_exists($userId, $cache)) {
+            $cache[$userId] = self::join('conductor', 'conductor.id', '=', 'checklistvehicular.conductor_id')
+                ->where('conductor.user_id', $userId)
+                ->orderBy('checklistvehicular.fecha_registro', 'desc')
+                ->orderBy('checklistvehicular.hora_fin', 'desc')
+                ->orderBy('checklistvehicular.id', 'desc')
+                ->value('checklistvehicular.id');
         }
-        return date('Y-m-d', strtotime($fechaRegistro)) == date('Y-m-d');
+        return $cache[$userId];
     }
 
 }
