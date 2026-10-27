@@ -47,7 +47,7 @@
     					<div class="col-lg-4 col-md-12 p-0 form-group input-group">
     						<div class="col-lg-6 col-md-6 col-sm-6 col-6 p-0" <?php if($user->tipouser->id==7){ echo "style='display:none'";}?>>
     							{!! Form::label('conductor', 'Conductor', array('class' => 'col-5 p-0 mt-2')) !!}
-    							{!! Form::text('conductor', ($user->tipouser->id==7?$user->name:null), array('class' => 'col-11 form-control input-xs', 'id' => 'conductor')) !!}
+    							{!! Form::text('conductor', null, array('class' => 'col-11 form-control input-xs', 'id' => 'conductor')) !!}
     						</div>
     						<div class="col-lg-6 col-md-6 col-sm-6 col-6 p-0" >
     							{!! Form::label('txtLider', 'Lider', array('class' => 'col-5 p-0 mt-2')) !!}
@@ -145,13 +145,13 @@
 								@if($user->tipouser_id!="10")
 									{!! Form::button('<i class="material-icons">add</i>Registrar', array('class' => 'btn btn-info p-2 pl-1 pr-1', 'id' => 'btnNuevo', 'onclick' => 'modal (\''.URL::route($ruta["create"], array('listar'=>'SI')).'\', \''.$tituloCheckListVehicular.'\', this);')) !!}
 								@endif
-								@if($user->tipouser_id!="7" && $user->tipouser_id!="10" && $user->tipouser_id!="11")
+								@if($user->tipouser_id!="7" && $user->tipouser_id!="10" && $user->tipouser_id!="11" && $user->tipouser_id!="6" && $user->tipouser_id!="12" && $user->tipouser_id!="2" && $user->tipouser_id!="3" && $user->tipouser_id!="4")
 									{!! Form::button('<i class="material-icons">backup</i> Km Resumen', array('class' => 'btn btn-primary p-2 pl-1 pr-1', 'id' => 'btnReporte', 'onclick' => 'reporte ()')) !!}
 									{!! Form::button('<i class="material-icons">backup</i> Seg. Km', array('class' => 'btn btn-info p-2 pl-1 pr-1', 'id' => 'btnReporte2', 'onclick' => 'reporte2 ()','style'=>'background:blue')) !!}
 									{!! Form::button('<i class="material-icons">backup</i> Seg. Km Detallado', array('class' => 'btn btn-info p-2 pl-1 pr-1', 'id' => 'btnReporte3', 'onclick' => 'reporte3 ()','style'=>'background:blue')) !!}
 									{!! Form::button('<i class="material-icons">backup</i> Seg. Km Mes', array('class' => 'btn btn-info p-2 pl-1 pr-1', 'id' => 'btnReporte3', 'onclick' => 'reporteMes ()','style'=>'background:blue')) !!}
 								@endif
-								@if($user->tipouser_id!="7")
+								@if($user->tipouser_id!="7" && $user->tipouser_id!="6" && $user->tipouser_id!="12" && $user->tipouser_id!="2" && $user->tipouser_id!="3" && $user->tipouser_id!="4")
 									<a href="#" onclick="excel();" class="btn btn-sm btn-warning p-2 pl-1 pr-1">
 	    								<i class="material-icons">cloud_download</i> Exportar Lista
 	    							</a>
@@ -159,7 +159,7 @@
 	    								<i class="material-icons">cloud_download</i> Exportar Revision
 	    							</a>
 	    						@endif
-    							@if($user->tipouser_id!="7" && $user->tipouser_id!="10" && $user->tipouser_id!="11")
+    							@if($user->tipouser_id!="7" && $user->tipouser_id!="10" && $user->tipouser_id!="11" && $user->tipouser_id!="6" && $user->tipouser_id!="12" && $user->tipouser_id!="2" && $user->tipouser_id!="3" && $user->tipouser_id!="4")
 	    							<a href="#" onclick="excelNoRegistrado();" class="btn btn-sm btn-danger p-2 pl-1 pr-1">
 	    								<i class="material-icons">cloud_download</i> No Registrado
 	    							</a>

@@ -64,7 +64,7 @@ class Checklistvehicular extends Model
                 if($lider!="") $subquery->where('checklistvehicular.lider_area', 'like','%'.$lider.'%');
             })
             ->orderBy('checklistvehicular.fecha_registro', 'DESC')
-            ->select('checklistvehicular.id', 'checklistvehicular.fecha_registro','checklistvehicular.incidentes','checklistvehicular.observaciones', 'equipo.placa as equipo_placa', 'equipo.descripcion as equipo_descripcion', 'vehiculo.placa as vehiculo_placa', 'vehiculo.modelo as vehiculo_modelo', 'checklistvehicular.k_inicial', 'checklistvehicular.k_final', 'checklistvehicular.lider_area', 'conductor.nombres as conductor_nombres', 'conductor.apellidos as conductor_apellidos', 'checklistvehicular.sistema_electrico',DB::raw('case when checklistvehicular.equipo_id then ua2.codigo else ua.codigo end as vehiculo_ua'),'checklistvehicular.hora_fin','checklistvehicular.hora_inicio','users.name as usuario',DB::raw('case when checklistvehicular.uatrabajo_id is null or checklistvehicular.uatrabajo_id =0 then null else uatrabajo.codigo end as vehiculo_uatrabajo'),'checklistvehicular.justificacion','vehiculo.saltarkm','checklistvehicular.updated_at');
+            ->select('checklistvehicular.id', 'checklistvehicular.fecha_registro','checklistvehicular.incidentes','checklistvehicular.observaciones', 'equipo.placa as equipo_placa', 'equipo.descripcion as equipo_descripcion', 'vehiculo.placa as vehiculo_placa', 'vehiculo.modelo as vehiculo_modelo', 'checklistvehicular.k_inicial', 'checklistvehicular.k_final', 'checklistvehicular.lider_area', 'conductor.nombres as conductor_nombres', 'conductor.apellidos as conductor_apellidos', 'checklistvehicular.sistema_electrico',DB::raw('case when checklistvehicular.equipo_id then ua2.codigo else ua.codigo end as vehiculo_ua'),'checklistvehicular.hora_fin','checklistvehicular.hora_inicio','users.name as usuario',DB::raw('case when checklistvehicular.uatrabajo_id is null or checklistvehicular.uatrabajo_id =0 then null else uatrabajo.codigo end as vehiculo_uatrabajo'),'checklistvehicular.justificacion','vehiculo.saltarkm','checklistvehicular.updated_at','conductor.user_id as conductor_user_id');
     }
 
     public function vehiculo()
@@ -85,6 +85,21 @@ class Checklistvehicular extends Model
     public function conductor()
     {
         return $this->belongsTo('App\Conductor');
+    }
+
+    /**
+     * Un usuario conductor (tipouser 7) puede editar sus propios checklists
+     * (conductor.user_id = su usuario) y los de otros solo si la F. Registro es hoy.
+     */
+    public static function conductorPuedeEditar($user, $conductorUserId, $fechaRegistro)
+    {
+        if ($user->tipouser_id != 7) {
+            return true;
+        }
+        if ($conductorUserId == $user->id) {
+            return true;
+        }
+        return date('Y-m-d', strtotime($fechaRegistro)) == date('Y-m-d');
     }
 
 }
