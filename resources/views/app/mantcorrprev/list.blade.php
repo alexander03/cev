@@ -26,7 +26,11 @@
 		<tr style="<?php echo $color; ?>">
 			<td>{{ $contador }}</td>
 			@if($user->tipouser_id!=10)
+				@if(App\Checklistvehicular::conductorPuedeEditar($user, $value->conductor_user_id, $value->fecha_registro))
 				<td>{!! Form::button('<i class="material-icons">edit</i>', array('onclick' => 'modal (\''.URL::route($ruta["edit"], array($value->id, 'listar'=>'SI')).'\', \''.$titulo_modificar.'\', this);', 'class' => 'btn btn-primary btn-link btn-sm','rel'=>'tooltip','title'=>'Ver')) !!}</td>
+				@else
+				<td></td>
+				@endif
 			@endif
 			<td>
 				<a href="{{ route('mantcorrprev.pdf.export') . '?checklistvehicular_id=' . $value->id }}" target="_blank" class="btn btn-sm btn-secondary" title="Exportar">

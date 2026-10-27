@@ -570,7 +570,17 @@ class MantCorrPrev extends Controller
         }
         $listar   = Libreria::getParam($request->input('listar'), 'NO');
         $checklistvehicular = Checklistvehicular::find($id);
-        
+        if (!Checklistvehicular::conductorPuedeEditar(auth()->user(), optional($checklistvehicular->conductor)->user_id, $checklistvehicular->fecha_registro)) {
+            $cadena = '<blockquote><p class="text-danger">No puede modificar un checklist de otro conductor, salvo los registrados con fecha de hoy.</p></blockquote>';
+            $cadena .= '<button class="btn btn-warning btn-sm" id="btnCerrarexiste"><i class="fa fa-times fa-lg"></i> Cerrar</button>';
+            $cadena .= "<script type=\"text/javascript\">
+                            $(document).ready(function() {
+                                $('#btnCerrarexiste').attr('onclick','cerrarModal(' + (contadorModal - 1) + ');').unbind('click');
+                            });
+                        </script>";
+            return $cadena;
+        }
+
         if($checklistvehicular->equipo_id != '') {
             $equipo = Equipo::find($checklistvehicular->equipo_id);
             $unidad_placa = $equipo->placa;
@@ -613,7 +623,11 @@ class MantCorrPrev extends Controller
         if ($existe !== true) {
             return $existe;
         }
-        
+        $checklistvehicular = Checklistvehicular::find($id);
+        if (!Checklistvehicular::conductorPuedeEditar(auth()->user(), optional($checklistvehicular->conductor)->user_id, $checklistvehicular->fecha_registro)) {
+            return json_encode(array("permiso" => ["No puede modificar un checklist de otro conductor, salvo los registrados con fecha de hoy."]));
+        }
+
         $today = \Carbon\Carbon::now('America/Lima')->toDateString();
         $min = $request->all()['k_inicial'];
 
