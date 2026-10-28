@@ -180,7 +180,8 @@ class MantCorrPrev extends Controller
             $cabecera[]       = array('valor' => 'Justificacion', 'numero' => '1');
         }
         $cabecera[]       = array('valor' => 'Usuario', 'numero' => '1');
-        $cabecera[]       = array('valor' => 'F. Bitacora', 'numero' => '1');
+        $cabecera[]       = array('valor' => 'F. Apertura', 'numero' => '1');
+        $cabecera[]       = array('valor' => 'F. Cierre', 'numero' => '1');
         $cabecera[]       = array('valor' => 'Opciones', 'numero' => '2');
         $titulo_modificar = $this->tituloModificar;
         $titulo_eliminar  = $this->tituloEliminar;

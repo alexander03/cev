@@ -68,7 +68,8 @@
 				<td>{{ $value->justificacion }}</td>
 			@endif
 			<td>{{ $value->usuario }}</td>
-			<td>{{ date('d/m/Y H:i:s', strtotime($value->updated_at)) }}</td>
+			<td>{{ $value->created_at ? date('d/m/Y H:i:s', strtotime($value->created_at)) : '' }}</td>
+			<td>{{ $value->updated_at ? date('d/m/Y H:i:s', strtotime($value->updated_at)) : '' }}</td>
 			@if($user->tipouser_id==1 || $user->tipouser_id==6 || $user->tipouser_id==12)
 			<td>{!! Form::button('<i class="material-icons">visibility</i>', array('onclick' => 'modal (\''.URL::route($ruta["justificar"], array($value->id, 'SI')).'\', \'Ingrese Información\', this);', 'class' => 'btn btn-warning btn-link btn-sm','rel'=>'tooltip','title'=>'Justificar')) !!}</td>
 			@endif
