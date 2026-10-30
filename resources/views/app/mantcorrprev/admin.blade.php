@@ -16,7 +16,7 @@
 							<div class="col-12 p-0 form-group input-group">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-12 p-0 input-group">
 									{!! Form::label('fecha_registro_inicial', 'Inicio', array('class' => 'col-3 p-0 mt-2')) !!}
-									{!! Form::date('fecha_registro_inicial', date('Y-m-01'), array('class' => 'col-7 form-control input-xs', 'id' => 'fecha_registro_inicial')) !!}
+									{!! Form::date('fecha_registro_inicial', date('Y-m-d'), array('class' => 'col-7 form-control input-xs', 'id' => 'fecha_registro_inicial')) !!}
 									<div class="col-1 p-0">
 										<button class="btn btn-warning p-1" id="btn_remove_fecha_registro_inicial">
 											<span class="material-icons outlined">close</span>
