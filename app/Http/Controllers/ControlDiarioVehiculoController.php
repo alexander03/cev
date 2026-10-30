@@ -686,7 +686,7 @@ class ControlDiarioVehiculoController extends Controller
         
         $html = view($this->folderview . ".exports.pdfReports.detallado", $data)->render();
 
-        $mpdf = new Mpdf(['orientation' => "L"]);
+        $mpdf = new Mpdf(['orientation' => "L", 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode("fullpage");
         $mpdf->WriteHTML($html);
 
@@ -708,7 +708,7 @@ class ControlDiarioVehiculoController extends Controller
         
         $html = view($this->folderview . ".exports.pdfReports.consolidado", $data)->render();
 
-        $mpdf = new Mpdf(['orientation' => "L"]);
+        $mpdf = new Mpdf(['orientation' => "L", 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode("fullpage");
         $mpdf->WriteHTML($html);
 
@@ -730,7 +730,7 @@ class ControlDiarioVehiculoController extends Controller
         
         $html = view($this->folderview . ".exports.pdfReports.consolidado", $data)->render();
 
-        $mpdf = new Mpdf(['orientation' => "L"]);
+        $mpdf = new Mpdf(['orientation' => "L", 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode("fullpage");
         $mpdf->WriteHTML($html);
         $mpdf->AddPage();
@@ -760,7 +760,7 @@ class ControlDiarioVehiculoController extends Controller
         
         $html = view($this->folderview . ".exports.pdfReports.HorasTrabajadas", $data)->render();
 
-        $mpdf = new Mpdf(['orientation' => 'L']);
+        $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode("fullpage");
         $mpdf->WriteHTML($html);
 

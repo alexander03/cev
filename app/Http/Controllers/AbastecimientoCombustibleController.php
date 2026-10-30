@@ -770,7 +770,7 @@ class AbastecimientoCombustibleController extends Controller{
                 $data['tipocombustible'] = "TODOS";
             }
             $html = view('app.abast-combustible.pdf.control_diario_combustible', $data)->render();
-            $mpdf = new Mpdf(['orientation' => 'L']);
+            $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
             $mpdf->SetDisplayMode('fullpage');
             $mpdf->WriteHTML($html);
             $mpdf->Output($namefile, "I");
@@ -920,7 +920,7 @@ class AbastecimientoCombustibleController extends Controller{
             $data['tipo'] = $request->input('tipo');
             if($request->input('tipo')=="pdf"){
                 $html = view('app.abast-combustible.pdf.reportesubcontratista', $data)->render();
-                $mpdf = new Mpdf(['orientation' => 'L']);
+                $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
                 $mpdf->SetDisplayMode('fullpage');
                 $mpdf->SetTitle('Reporte Equipo Combustible');
                 $mpdf->WriteHTML($html);
@@ -1029,7 +1029,7 @@ class AbastecimientoCombustibleController extends Controller{
             $data['tipo'] = $request->input('tipo');
             if($request->input('tipo')=="pdf"){
                 $html = view('app.abast-combustible.pdf.reportecombustible', $data)->render();
-                $mpdf = new Mpdf(['orientation' => 'L']);
+                $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
                 $mpdf->SetDisplayMode('fullpage');
                 $mpdf->WriteHTML($html);
                 $mpdf->SetTitle('Reporte Vehiculo Combustible');
@@ -1095,7 +1095,7 @@ class AbastecimientoCombustibleController extends Controller{
             $data['tipo'] = $request->input('tipo');
             if($request->input('tipo')=="pdf"){
                 $html = view('app.abast-combustible.pdf.reportecombustible', $data)->render();
-                $mpdf = new Mpdf(['orientation' => 'L']);
+                $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
                 $mpdf->SetDisplayMode('fullpage');
                 $mpdf->WriteHTML($html);
                 $mpdf->SetTitle('Reporte Vehiculo Combustible');
@@ -1162,7 +1162,7 @@ class AbastecimientoCombustibleController extends Controller{
             $data['tipo'] = $request->input('tipo');
             if($request->input('tipo')=="pdf"){
                 $html = view('app.abast-combustible.pdf.reportecombustible', $data)->render();
-                $mpdf = new Mpdf(['orientation' => 'L']);
+                $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
                 $mpdf->SetDisplayMode('fullpage');
                 $mpdf->WriteHTML($html);
                 $mpdf->SetTitle('Reporte Equipo Combustible');
@@ -1281,7 +1281,7 @@ class AbastecimientoCombustibleController extends Controller{
             $data['tipo'] = $request->input('tipo');
             if($request->input('tipo')=="pdf"){
                 $html = view('app.abast-combustible.pdf.reportecombustible', $data)->render();
-                $mpdf = new Mpdf(['orientation' => 'L']);
+                $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
                 $mpdf->SetDisplayMode('fullpage');
                 $mpdf->WriteHTML($html);
                 $mpdf->SetTitle('Reporte Vehiculo Combustible');

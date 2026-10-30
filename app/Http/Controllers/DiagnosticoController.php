@@ -460,7 +460,7 @@ class DiagnosticoController extends Controller
         // dd($data);
         $html = view('app.regmanveh.pdf.template_individual', $data)->render();
 
-        $mpdf = new Mpdf();
+        $mpdf = new Mpdf(['tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->WriteHTML($html);
 

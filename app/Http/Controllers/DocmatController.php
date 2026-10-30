@@ -449,7 +449,7 @@ class DocmatController extends Controller
         // dd($data);
         $html = view('app.docmat.pdf.template_individual', $data)->render();
 
-        $mpdf = new Mpdf();
+        $mpdf = new Mpdf(['tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->AddPage('L');
         $mpdf->WriteHTML($html);

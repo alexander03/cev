@@ -681,7 +681,7 @@ class ControlDiarioController extends Controller
         $data['data'] = $collectionResult;
         $data['fechas'] = $fechas;
         $html = view('app.controldiario.pdf.h_equixua', $data)->render();
-        $mpdf = new Mpdf(['orientation' => 'L']);
+        $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->WriteHTML($html);
         $mpdf->Output('report_HxEquipoxUa.pdf', "I");
@@ -855,7 +855,7 @@ class ControlDiarioController extends Controller
         
         $html = view($this->folderview . ".exports.pdfReports.detallado", $data)->render();
         //echo $html;
-        $mpdf = new Mpdf(['orientation' => "L"]);
+        $mpdf = new Mpdf(['orientation' => "L", 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode("fullpage");
         $mpdf->WriteHTML($html);
 
@@ -877,7 +877,7 @@ class ControlDiarioController extends Controller
         
         $html = view($this->folderview . ".exports.pdfReports.consolidado", $data)->render();
 
-        $mpdf = new Mpdf(['orientation' => "L"]);
+        $mpdf = new Mpdf(['orientation' => "L", 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode("fullpage");
         $mpdf->WriteHTML($html);
 
@@ -898,7 +898,7 @@ class ControlDiarioController extends Controller
         
         $html = view($this->folderview . ".exports.pdfReports.HorasTrabajadas", $data)->render();
         //echo $html;die();
-        $mpdf = new Mpdf(['orientation' => 'L']);
+        $mpdf = new Mpdf(['orientation' => 'L', 'tempDir' => storage_path('app/mpdf')]);
         $mpdf->SetDisplayMode("fullpage");
         $mpdf->WriteHTML($html);
 

@@ -71,12 +71,20 @@ Route::get('/config-cache', function() {
     return '<h1>Clear Config cleared</h1>';
 });
 
+// Un usuario ya autenticado va a /home: la vista de login con el layout de
+// usuario autenticado falla porque no recibe $titlePage.
 Route::get('/', function () {
     //return view('welcome');
+    if (Auth::check()) {
+        return redirect('/home');
+    }
     return view('auth.login');
 });
 Route::get('/asd', function () {
     //return view('welcome');
+    if (Auth::check()) {
+        return redirect('/home');
+    }
     return view('auth.login');
 });
 Auth::routes();

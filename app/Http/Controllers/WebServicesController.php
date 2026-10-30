@@ -449,10 +449,10 @@ class WebServicesController extends Controller{
             $obj = new Empresa();
             $obj->razonsocial= strtoupper($request->input('razonsocial'));
             $obj->ruc= strtoupper($request->input('ruc'));
-            $obj->user_id = auth()->user()->id;
-            
-            event( new UserHasCreatedOrDeleted($obj->id,'empresa', $request->input('user_id'),'crear'));
+            $obj->user_id = 1;
+
             $obj->save();
+            event( new UserHasCreatedOrDeleted($obj->id,'empresa', $request->input('user_id'),'crear'));
         });
         return is_null($error) ? "OK" : $error;
     }
